@@ -1,6 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 
 body {
@@ -15,4 +16,13 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+  user-select: none;
+}
+
+footer {
+  user-select: none;
 }
