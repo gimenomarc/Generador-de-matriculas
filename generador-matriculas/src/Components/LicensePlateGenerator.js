@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './LicensePlateGenerator.css';
+import copiadoImage from '../Assets/copiado.png';
 
 const LicensePlateGenerator = () => {
   const [licensePlates, setLicensePlates] = useState([]);
+  const [copiedIndex, setCopiedIndex] = useState(null);
 
   const generateLicensePlate = () => {
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const letters = 'BCDFGHJKLMNPQRSTVWXYZ';
     const numbers = '0123456789';
 
     let plate = '';
@@ -20,11 +22,12 @@ const LicensePlateGenerator = () => {
       plate += randomLetter;
     }
 
-    setLicensePlates((prevLicensePlates) => [...prevLicensePlates, plate]);
+    setLicensePlates((prevLicensePlates) => [plate, ...prevLicensePlates]);
   };
 
-  const copyLicensePlate = (licensePlate) => {
+  const copyLicensePlate = (licensePlate, index) => {
     navigator.clipboard.writeText(licensePlate);
+    setCopiedIndex(index);
   };
 
   const clearLicensePlates = () => {
@@ -35,13 +38,13 @@ const LicensePlateGenerator = () => {
     <div className="flex flex-col items-center mt-8">
       <div className="flex">
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-l mt-4 mr-4"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-l mt-4 mr-4 flex-grow"
           onClick={generateLicensePlate}
         >
           Generar Matrícula
         </button>
         <button
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-r mt-4"
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-r mt-4 flex-grow"
           onClick={clearLicensePlates}
         >
           Limpiar
@@ -52,18 +55,20 @@ const LicensePlateGenerator = () => {
           <h2 className="text-2xl font-semibold mb-2">Matrículas Generadas</h2>
           <TransitionGroup>
             {licensePlates.map((licensePlate, index) => (
-              <CSSTransition
-                key={index}
-                timeout={500}
-                classNames="slide"
-              >
+              <CSSTransition key={index} timeout={500} classNames="slide">
                 <div className="flex items-center bg-gray-100 rounded py-2 px-4 mb-2">
                   <span className="flex-grow">{licensePlate}</span>
                   <button
-                    className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-r"
-                    onClick={() => copyLicensePlate(licensePlate)}
+                    className={`bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-r button-copied ${
+                      copiedIndex === index ? 'copied' : ''
+                    }`}
+                    onClick={() => copyLicensePlate(licensePlate, index)}
                   >
-                    Copiar
+                    {copiedIndex === index ? (
+                      <img src={copiadoImage} alt="Copiado" className="w-auto h-4" />
+                    ) : (
+                      'Copiar'
+                    )}
                   </button>
                 </div>
               </CSSTransition>
@@ -76,4 +81,3 @@ const LicensePlateGenerator = () => {
 };
 
 export default LicensePlateGenerator;
-
