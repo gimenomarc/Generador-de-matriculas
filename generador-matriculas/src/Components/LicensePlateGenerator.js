@@ -32,6 +32,7 @@ const LicensePlateGenerator = () => {
 
   const clearLicensePlates = () => {
     setLicensePlates([]);
+    setCopiedIndex(null);
   };
 
   return (
@@ -52,7 +53,7 @@ const LicensePlateGenerator = () => {
       </div>
       {licensePlates.length > 0 && (
         <div className="mt-4 w-full">
-          <h2 className="text-2xl font-semibold mb-2">Matrículas Generadas</h2>
+          <h2 className="text-2xl font-semibold mb-2 mt-10 text-center">Matrículas Generadas</h2>
           <TransitionGroup>
             {licensePlates.map((licensePlate, index) => (
               <CSSTransition key={index} timeout={500} classNames="slide">
@@ -65,7 +66,7 @@ const LicensePlateGenerator = () => {
                     onClick={() => copyLicensePlate(licensePlate, index)}
                   >
                     {copiedIndex === index ? (
-                      <img src={copiadoImage} alt="Copiado" className="w-auto h-4" />
+                      <img src={copiadoImage} alt="Copiado" className="w-4 h-4" />
                     ) : (
                       'Copiar'
                     )}
