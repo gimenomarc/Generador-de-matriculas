@@ -47,13 +47,17 @@ const LicensePlateGenerator = ({ darkMode }) => {
       <div className="flex flex-col items-center mt-8">
         <div className="flex">
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-l mt-4 mr-4 flex-grow"
+            className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-l mt-4 mr-4 flex-grow ${
+              darkMode ? 'dark-mode' : ''
+            }`}
             onClick={generateLicensePlate}
           >
             Generar
           </button>
           <button
-            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-r mt-4 flex-grow"
+            className={`bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-r mt-4 flex-grow ${
+              darkMode ? 'dark-mode' : ''
+            }`}
             onClick={clearLicensePlates}
           >
             Limpiar
@@ -61,14 +65,18 @@ const LicensePlateGenerator = ({ darkMode }) => {
         </div>
         {licensePlates.length > 0 && (
           <div className="mt-4 w-full">
-            <h2 className="text-2xl font-semibold mb-2 mt-10 text-center">
+            <h2
+              className={`text-2xl font-semibold mb-2 mt-10 text-center ${
+                darkMode ? 'text-gray-200' : 'text-gray-800'
+              }`}
+            >
               Matrículas Generadas
             </h2>
             <TransitionGroup>
               {licensePlates.map((licensePlate, index) => (
                 <CSSTransition key={index} timeout={500} classNames="slide">
-                  <div className="flex items-center bg-gray-100 rounded py-2 px-4 mb-2">
-                    <span className="flex-grow">{licensePlate}</span>
+                  <div className={`flex items-center bg-gray-100 rounded py-2 px-4 mb-2 ${darkMode ? 'dark-mode' : ''}`}>
+                    <span className="flex-grow text-black">{licensePlate}</span>
                     <button
                       className={`bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-r button-copied ${
                         copiedIndex === index ? 'copied' : ''
@@ -93,4 +101,3 @@ const LicensePlateGenerator = ({ darkMode }) => {
 };
 
 export default LicensePlateGenerator;
-

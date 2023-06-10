@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import Switch from 'react-switch';
 import './Navigation.css';
 
 const Navigation = ({ darkMode, toggleDarkMode }) => {
@@ -16,7 +17,9 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
                   darkMode ? 'text-gray-200' : ''
                 }`}
               >
-                Matrículas de España
+                <button className="btn-primary">
+                  Matrículas de España
+                </button>
               </Link>
             </li>
           </CSSTransition>
@@ -28,7 +31,9 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
                   darkMode ? 'text-gray-200' : ''
                 }`}
               >
-                Matrículas especiales
+                <button className="btn-primary">
+                  Matrículas especiales
+                </button>
               </Link>
             </li>
           </CSSTransition>
@@ -40,21 +45,30 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
                   darkMode ? 'text-gray-200' : ''
                 }`}
               >
-                Matrículas extranjeras
+                <button className="btn-primary">
+                  Matrículas extranjeras
+                </button>
               </Link>
             </li>
           </CSSTransition>
         </TransitionGroup>
-        <li className="flex items-center ml-auto">
+        <li className="flex items-center ml-auto mr-4">
           <label htmlFor="darkModeToggle" className="text-white mr-2">
             Dark Mode
           </label>
-          <input
-            type="checkbox"
-            id="darkModeToggle"
+          <Switch
             checked={darkMode}
             onChange={toggleDarkMode}
-            className="rounded-full appearance-none w-10 h-6 bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-800"
+            onColor="#86d3ff"
+            onHandleColor="#2693e6"
+            handleDiameter={24}
+            uncheckedIcon={false}
+            checkedIcon={false}
+            boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+            activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+            height={16}
+            width={40}
+            className="react-switch"
           />
         </li>
       </ul>
@@ -63,6 +77,8 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
 };
 
 export default Navigation;
+
+
 
 
 
