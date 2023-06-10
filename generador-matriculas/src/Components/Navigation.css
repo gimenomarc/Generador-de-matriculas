@@ -1,0 +1,32 @@
+.nav-link {
+    padding: 0.5rem 1rem;
+    margin-right: 2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #ccc;
+  }
+  
+  .nav-link-enter {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  
+  .nav-link-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .nav-link-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .nav-link-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
