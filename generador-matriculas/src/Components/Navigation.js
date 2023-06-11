@@ -76,10 +76,3 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
 };
 
 export default Navigation;
-
-
-
-
-
-
-

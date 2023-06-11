@@ -106,4 +106,3 @@ const SpecialLicensePlates = ({ darkMode }) => {
 };
 
 export default SpecialLicensePlates;
-
