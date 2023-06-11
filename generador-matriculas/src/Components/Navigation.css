@@ -1,36 +1,41 @@
-.nav-link {
-    padding: 0.5rem 1rem;
-    margin-right: 2rem;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-link:hover {
-    color: #ccc;
-  }
-  
-  .nav-link-enter {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  
-  .nav-link-enter-active {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-  
-  .nav-link-exit {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .nav-link-exit-active {
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-  
-  .transition-color {
-    transition: background-color 0.5s ease;
-  }
-  
+.hamburger {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: currentColor;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: currentColor;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before {
+  top: -10px;
+}
+
+.hamburger::after {
+  bottom: -10px;
+}
+
+.hamburger.open {
+  transform: rotate(45deg);
+}
+
+.hamburger.open::before {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.hamburger.open::after {
+  bottom: 0;
+  transform: rotate(90deg);
+}

@@ -6,6 +6,7 @@ import copiadoImage from '../Assets/copiado.png';
 const SpecialLicensePlates = ({ darkMode }) => {
   const [licensePlates, setLicensePlates] = useState([]);
   const [copiedIndex, setCopiedIndex] = useState(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const generateSpecialLicensePlate = () => {
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -30,7 +31,15 @@ const SpecialLicensePlates = ({ darkMode }) => {
   const copyLicensePlate = (licensePlate, index) => {
     navigator.clipboard.writeText(licensePlate);
     setCopiedIndex(index);
+    setIsTransitioning(true);
+
+    setTimeout(() => {
+      setCopiedIndex(null);
+      setIsTransitioning(false);
+    }, 2000);
   };
+
+
 
   const clearLicensePlates = () => {
     setLicensePlates([]);
@@ -68,11 +77,19 @@ const SpecialLicensePlates = ({ darkMode }) => {
                   <div className={`flex items-center bg-gray-100 rounded py-2 px-4 mb-2 ${darkMode ? 'dark-mode' : ''}`}>
                     <span className="flex-grow text-black">{licensePlate}</span>
                     <button
+                      style={{ minWidth: '100px', minHeight: '50px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                       className={`bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-r button-copied ${copiedIndex === index ? 'copied' : ''}`}
                       onClick={() => copyLicensePlate(licensePlate, index)}
                     >
                       {copiedIndex === index ? (
-                        <img src={copiadoImage} alt="Copiado" className="w-4 h-4" />
+                        <CSSTransition
+                          in={isTransitioning}
+                          timeout={2000}
+                          classNames="fade"
+                          unmountOnExit
+                        >
+                          <img src={copiadoImage} alt="Copiado" className="h-4" />
+                        </CSSTransition>
                       ) : (
                         'Copiar'
                       )}

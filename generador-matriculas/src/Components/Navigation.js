@@ -5,6 +5,7 @@ import Switch from 'react-switch';
 import './Navigation.css';
 
 const Navigation = ({ darkMode, toggleDarkMode }) => {
+
   return (
     <nav className={`${darkMode ? 'bg-menu-dark' : 'bg-menu-light'} transition-colors`}>
       <ul className="flex flex-col sm:flex-row sm:space-x-4 justify-center items-center py-4 sm:py-6">
