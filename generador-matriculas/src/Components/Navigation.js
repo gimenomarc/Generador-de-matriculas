@@ -6,18 +6,17 @@ import './Navigation.css';
 
 const Navigation = ({ darkMode, toggleDarkMode }) => {
   return (
-    <nav className={`bg-gray-800 ${darkMode ? 'dark' : ''}`}>
+    <nav className={`${darkMode ? 'bg-menu-dark' : 'bg-menu-light'} transition-colors`}>
       <ul className="flex flex-col sm:flex-row justify-center items-center py-4 sm:py-6">
         <TransitionGroup component={null}>
           <CSSTransition classNames="nav-link" timeout={500}>
             <li className="mb-3 sm:mb-0 sm:mr-6">
               <Link
                 to="/matriculas-espana"
-                className={`nav-link text-white hover:text-gray-300 transition-colors duration-300 ${
-                  darkMode ? 'text-gray-200' : ''
-                }`}
+                className={`nav-link text-white hover:text-gray-300 transition-colors duration-300 ${darkMode ? 'text-gray-200' : ''
+                  }`}
               >
-                <button className="btn-primary">
+                <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                   Matrículas de España
                 </button>
               </Link>
@@ -27,11 +26,10 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
             <li className="mb-3 sm:mb-0 sm:mr-6">
               <Link
                 to="/matriculas-especiales"
-                className={`nav-link text-white hover:text-gray-300 transition-colors duration-300 ${
-                  darkMode ? 'text-gray-200' : ''
-                }`}
+                className={`nav-link text-white hover:text-gray-300 transition-colors duration-300 ${darkMode ? 'text-gray-200' : ''
+                  }`}
               >
-                <button className="btn-primary">
+                <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                   Matrículas especiales
                 </button>
               </Link>
@@ -41,19 +39,18 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
             <li className="mb-3 sm:mb-0 sm:mr-6">
               <Link
                 to="/matriculas-extranjeras"
-                className={`nav-link text-white hover:text-gray-300 transition-colors duration-300 ${
-                  darkMode ? 'text-gray-200' : ''
-                }`}
+                className={`nav-link text-white hover:text-gray-300 transition-colors duration-300 ${darkMode ? 'text-gray-200' : ''
+                  }`}
               >
-                <button className="btn-primary">
-                  Matrículas extranjeras
+                <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+                  Matrículas estranjeras
                 </button>
               </Link>
             </li>
           </CSSTransition>
         </TransitionGroup>
         <li className="flex items-center ml-auto mr-4">
-          <label htmlFor="darkModeToggle" className="text-white mr-2">
+          <label htmlFor="darkModeToggle" className={`${darkMode ? 'text-white' : 'text-black'} mr-2`}>
             Dark Mode
           </label>
           <Switch
