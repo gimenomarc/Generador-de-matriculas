@@ -18,4 +18,4 @@ La motivación para desarrollar esta aplicación surgió de mi trabajo actual co
 
 Fue entonces cuando decidí aprovechar mis habilidades y conocimientos como desarrollador para crear una solución más funcional y eficiente. Esta aplicación no solo me ayudó en mi trabajo diario, sino que también pensé que podría ser útil para otras personas que necesiten generar matrículas de forma rápida y sencilla.
 
-¡Espero que encuentres esta herramienta útil y que disfrutes generando matrículas personalizadas con el Generador de Matrículas!
+¡Espero que encuentres esta herramienta útil y que generes matrículas personalizadas con el Generador de Matrículas!
