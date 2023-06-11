@@ -36,7 +36,7 @@ const SpecialLicensePlates = ({ darkMode }) => {
     setTimeout(() => {
       setCopiedIndex(null);
       setIsTransitioning(false);
-    }, 2000);
+    }, 1000);
   };
 
 
