@@ -5,6 +5,7 @@ import Footer from './Components/Footer';
 import Navigation from './Components/Navigation';
 import SpecialLicensePlates from './Components/SpecialLicensePlates';
 import ForeignLicensePlates from './Components/ForeignLicensePlates';
+import NotFoundPage from './Components/NotFoundPage';
 import './App.css';
 
 function App() {
@@ -41,6 +42,10 @@ function App() {
             <Route
               path="/matriculas-extranjeras"
               element={<ForeignLicensePlates darkMode={darkMode} />}
+            />
+            <Route
+              path="*"
+              element={<NotFoundPage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />}
             />
           </Routes>
         </div>
