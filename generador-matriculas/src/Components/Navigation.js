@@ -7,7 +7,7 @@ import './Navigation.css';
 const Navigation = ({ darkMode, toggleDarkMode }) => {
   return (
     <nav className={`${darkMode ? 'bg-menu-dark' : 'bg-menu-light'} transition-colors`}>
-      <ul className="flex flex-col sm:flex-row justify-center items-center py-4 sm:py-6">
+      <ul className="flex flex-col sm:flex-row sm:space-x-4 justify-center items-center py-4 sm:py-6">
         <TransitionGroup component={null}>
           <CSSTransition classNames="nav-link" timeout={500}>
             <li className="mb-3 sm:mb-0 sm:mr-6">
@@ -49,10 +49,11 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
             </li>
           </CSSTransition>
         </TransitionGroup>
-        <li className="flex items-center ml-auto mr-4">
-          <label htmlFor="darkModeToggle" className={`${darkMode ? 'text-white' : 'text-black'} mr-2`}>
-            Dark Mode
+        <li className="flex items-center ml-auto mr-8">
+          <label htmlFor="darkModeToggle" className={`mr-2 text-sm font-semibold ${darkMode ? 'text-white' : 'text-black'}`}>
+            {darkMode ? 'Light Mode' : 'Dark Mode'}
           </label>
+
           <Switch
             checked={darkMode}
             onChange={toggleDarkMode}
