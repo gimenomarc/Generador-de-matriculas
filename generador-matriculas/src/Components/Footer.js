@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 const Footer = () => {
   return (
     <footer className="mt-10 mb-4 text-gray-500 text-center">
       <p className="text-sm">
-        © Created by{' '}
+        © Created by{" "}
         <a
           href="https://www.linkedin.com/in/marc-gimeno-b2546020a/"
           target="_blank"

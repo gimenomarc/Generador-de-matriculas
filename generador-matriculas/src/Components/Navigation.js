@@ -1,21 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import Switch from 'react-switch';
-import './Navigation.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import Switch from "react-switch";
+import "./Navigation.css";
 
 const Navigation = ({ darkMode, toggleDarkMode }) => {
-
   return (
-    <nav className={`${darkMode ? 'bg-menu-dark' : 'bg-menu-light'} transition-colors`}>
+    <nav
+      className={`${
+        darkMode ? "bg-menu-dark" : "bg-menu-light"
+      } transition-colors`}
+    >
       <ul className="flex flex-col sm:flex-row sm:space-x-4 justify-center items-center py-4 sm:py-6">
         <TransitionGroup component={null}>
           <CSSTransition classNames="nav-link" timeout={500}>
             <li className="mb-3 sm:mb-0">
               <Link
                 to="/matriculas-espana"
-                className={`nav-link text-white hover:text-gray-300 transition-colors duration-300 ${darkMode ? 'text-gray-200' : ''
-                  }`}
+                className={`nav-link text-white hover:text-gray-300 transition-colors duration-300 ${
+                  darkMode ? "text-gray-200" : ""
+                }`}
               >
                 <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                   Matrículas de España
@@ -27,8 +31,9 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
             <li className="mb-3 sm:mb-0 sm:mr-6">
               <Link
                 to="/matriculas-especiales"
-                className={`nav-link text-white hover:text-gray-300 transition-colors duration-300 ${darkMode ? 'text-gray-200' : ''
-                  }`}
+                className={`nav-link text-white hover:text-gray-300 transition-colors duration-300 ${
+                  darkMode ? "text-gray-200" : ""
+                }`}
               >
                 <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                   Matrículas especiales
@@ -40,8 +45,9 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
             <li className="mb-3 sm:mb-0 sm:mr-6">
               <Link
                 to="/matriculas-extranjeras"
-                className={`nav-link text-white hover:text-gray-300 transition-colors duration-300 ${darkMode ? 'text-gray-200' : ''
-                  }`}
+                className={`nav-link text-white hover:text-gray-300 transition-colors duration-300 ${
+                  darkMode ? "text-gray-200" : ""
+                }`}
               >
                 <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                   Matrículas extranjeras
@@ -51,8 +57,13 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
           </CSSTransition>
         </TransitionGroup>
         <li className="flex items-center ml-auto mr-8">
-          <label htmlFor="darkModeToggle" className={`mr-2 text-sm font-semibold ${darkMode ? 'text-white' : 'text-black'}`}>
-            {darkMode ? 'Light Mode' : 'Dark Mode'}
+          <label
+            htmlFor="darkModeToggle"
+            className={`mr-2 text-sm font-semibold ${
+              darkMode ? "text-white" : "text-black"
+            }`}
+          >
+            {darkMode ? "Light Mode" : "Dark Mode"}
           </label>
 
           <Switch
