@@ -6,6 +6,7 @@ import Navigation from './Components/Navigation';
 import SpecialLicensePlates from './Components/SpecialLicensePlates';
 import ForeignLicensePlates from './Components/ForeignLicensePlates';
 import NotFoundPage from './Components/NotFoundPage';
+import ValidateLicensePlate from './Components/ValidateLicensePlate';
 import './App.css';
 
 function App() {
@@ -27,6 +28,10 @@ function App() {
         <Navigation darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <div className="flex flex-col justify-center items-center mt-8 mb-auto">
           <Routes>
+            <Route
+              path="/validar-matricula"
+              element={<ValidateLicensePlate darkMode={darkMode} />}
+            />
             <Route
               path="/"
               element={<Navigate to="/matriculas-espana" replace />}
