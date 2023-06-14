@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import './ValidateLicensePlate.css';
 
 const ValidateLicensePlate = ({ darkMode }) => {
@@ -9,7 +10,7 @@ const ValidateLicensePlate = ({ darkMode }) => {
         fetch(`http://localhost:3001/comprobar-matricula/es/${licensePlate}`)
             .then(response => response.json())
             .then(data => setIsValid(data.esValida))
-            .catch(err => console.error(err));
+            .catch(err => console.error(err));  
     };
 
     return (
@@ -31,11 +32,18 @@ const ValidateLicensePlate = ({ darkMode }) => {
                 >
                     Validar
                 </button>
-                {isValid !== null && (
-                    <h2 className={`text-2xl font-semibold mt-10 text-center ${isValid ? 'text-green-600' : 'text-red-600'}`}>
-                        {isValid ? 'VALIDA' : 'INVALIDA'}
-                    </h2>
-                )}
+                <CSSTransition
+                    in={isValid !== null}
+                    timeout={500}
+                    classNames="message"
+                    unmountOnExit
+                >
+                    <div className={`mt-10 w-full max-w-sm p-5 text-center rounded-xl text-white ${isValid ? 'bg-green-500' : 'bg-red-500'}`}>
+                        <h2 className="text-3xl font-bold">
+                            {isValid ? 'MATRICULA CORRECTA' : 'MATRICULA INCORRECTA'}
+                        </h2>
+                    </div>
+                </CSSTransition>
             </div>
         </div>
     );

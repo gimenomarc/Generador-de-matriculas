@@ -11,7 +11,7 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
       <ul className="flex flex-col sm:flex-row sm:space-x-4 justify-center items-center py-4 sm:py-6">
         <TransitionGroup component={null}>
           <CSSTransition classNames="nav-link" timeout={500}>
-            <li className="mb-3 sm:mb-0 sm:mr-6">
+            <li className="mb-3 sm:mb-0">
               <Link
                 to="/validar-matricula"
                 className={`nav-link text-white hover:text-gray-300 transition-colors duration-300 ${darkMode ? 'text-gray-200' : ''
