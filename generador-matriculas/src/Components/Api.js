@@ -32,11 +32,11 @@ const Api = ({ darkMode }) => {
           </li>
           <li className="text-lg">
             <strong>GET /generar-matricula/:pais:</strong> Genera una matrícula aleatoria para el país especificado. 
-            Los países válidos son es para España y us para Estados Unidos.
+            Los países válidos son es para España, us para Estados Unidos, aus para Australia, de para Alemania, fr para Francia, uk para Reino Unido e it para Italia.
           </li>
           <li className="text-lg">
             <strong>GET /comprobar-matricula/:pais/:matricula:</strong> Comprueba si una matrícula es válida para 
-            el país especificado. Actualmente solo España (es) es soportado para esta funcionalidad.
+            el país especificado. Los países soportados para esta funcionalidad son es para España, us para Estados Unidos, aus para Australia, de para Alemania, fr para Francia, uk para Reino Unido e it para Italia.
           </li>
         </ul>
       </CSSTransition>
