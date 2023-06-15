@@ -7,6 +7,7 @@ import SpecialLicensePlates from './Components/SpecialLicensePlates';
 import ForeignLicensePlates from './Components/ForeignLicensePlates';
 import NotFoundPage from './Components/NotFoundPage';
 import ValidateLicensePlate from './Components/ValidateLicensePlate';
+import Api from './Components/Api'; // importa el nuevo componente
 import './App.css';
 
 function App() {
@@ -21,13 +22,16 @@ function App() {
     }
   };
 
-
   return (
     <Router>
       <div className={`flex flex-col min-h-screen ${darkMode ? 'bg-dark transition-colors' : 'bg-light transition-colors'}`}>
         <Navigation darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <div className="flex flex-col justify-center items-center mt-8 mb-auto">
           <Routes>
+            <Route
+              path="/api"
+              element={<Api darkMode={darkMode} />} // Usa el nuevo componente Api aquí
+            />
             <Route
               path="/validar-matricula"
               element={<ValidateLicensePlate darkMode={darkMode} />}

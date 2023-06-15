@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import './ValidateLicensePlate.css';
 
@@ -6,10 +6,28 @@ const ValidateLicensePlate = ({ darkMode }) => {
     const [licensePlate, setLicensePlate] = useState('');
     const [isValid, setIsValid] = useState(null);
 
+    const isMounted = useRef(null);
+
+    useEffect(() => {
+        isMounted.current = true;
+        return () => {
+            isMounted.current = false;
+        };
+    }, []);
+
     const validateLicensePlate = () => {
         fetch(`http://localhost:3001/comprobar-matricula/es/${licensePlate}`)
-            .then(response => response.json())
-            .then(data => setIsValid(data.esValida))
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (isMounted.current) {
+                    setIsValid(data.esValida);
+                }
+            })
             .catch(err => console.error(err));  
     };
 
@@ -50,3 +68,4 @@ const ValidateLicensePlate = ({ darkMode }) => {
 };
 
 export default ValidateLicensePlate;
+
