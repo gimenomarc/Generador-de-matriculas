@@ -6,7 +6,10 @@ const Api = ({ darkMode }) => {
   return (
     <div className={`p-8 mx-auto text-center w-full md:max-w-2xl ${darkMode ? 'bg-dark text-gray-200' : 'bg-light text-gray-800'}`}>
       <CSSTransition in={true} appear={true} timeout={300} classNames="fade">
-        <h1 className="text-4xl mb-4 font-semibold">API Generador de Matrículas</h1>
+        <div className="flex justify-center items-center space-x-4">
+          <h1 className="text-4xl mb-4 font-semibold">API Generador de Matrículas en progreso</h1>
+          <div className="spinner"></div>
+        </div>
       </CSSTransition>
 
       <CSSTransition in={true} appear={true} timeout={500} classNames="fade">
@@ -42,4 +45,3 @@ const Api = ({ darkMode }) => {
 };
 
 export default Api;
-
