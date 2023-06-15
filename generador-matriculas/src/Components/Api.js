@@ -38,6 +38,9 @@ const Api = ({ darkMode }) => {
             <strong>GET /comprobar-matricula/:pais/:matricula:</strong> Comprueba si una matrícula es válida para 
             el país especificado. Los países soportados para esta funcionalidad son es para España, us para Estados Unidos, aus para Australia, de para Alemania, fr para Francia, uk para Reino Unido e it para Italia.
           </li>
+          <li className="text-lg">
+            <strong>GET /determinar-pais/:matricula:</strong> Determina a qué país pertenece una matrícula introducida.
+          </li>
         </ul>
       </CSSTransition>
     </div>
