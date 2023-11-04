@@ -79,7 +79,7 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
           <CSSTransition classNames="nav-link" timeout={500}>
             <li className="mb-3 sm:mb-0">
               <Link
-                to="/generar-dni" // Ruta para el generador de DNI
+                to="/generar-dni" 
                 className={`nav-link text-white hover:text-gray-300 transition-colors duration-300 ${darkMode ? 'text-gray-200' : ''}`}
               >
                 <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">

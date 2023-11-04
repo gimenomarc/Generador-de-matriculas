@@ -7,7 +7,7 @@ import SpecialLicensePlates from './Components/SpecialLicensePlates';
 import ForeignLicensePlates from './Components/ForeignLicensePlates';
 import NotFoundPage from './Components/NotFoundPage';
 import ValidateLicensePlate from './Components/ValidateLicensePlate';
-import Api from './Components/Api'; // importa el nuevo componente
+import Api from './Components/Api'; 
 import DniGenerator from './Components/DniGenerator'; 
 import './App.css';
 
