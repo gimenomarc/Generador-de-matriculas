@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import './SpecialLicensePlates.css';
-import copiadoImage from '../Assets/copiado.png';
+import React, { useState } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import "./SpecialLicensePlates.css";
+import copiadoImage from "../Assets/copiado.png";
 
 const SpecialLicensePlates = ({ darkMode }) => {
   const [licensePlates, setLicensePlates] = useState([]);
@@ -9,11 +9,11 @@ const SpecialLicensePlates = ({ darkMode }) => {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const generateSpecialLicensePlate = () => {
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const numbers = '0123456789';
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const numbers = "0123456789";
 
-    let plate = '';
-    plate += 'ESP';
+    let plate = "";
+    plate += "ESP";
 
     for (let i = 0; i < 3; i++) {
       const randomDigit = numbers[Math.floor(Math.random() * numbers.length)];
@@ -39,8 +39,6 @@ const SpecialLicensePlates = ({ darkMode }) => {
     }, 1000);
   };
 
-
-
   const clearLicensePlates = () => {
     setLicensePlates([]);
     setCopiedIndex(null);
@@ -48,19 +46,27 @@ const SpecialLicensePlates = ({ darkMode }) => {
 
   return (
     <div>
-      <h1 className={`text-5xl font-bold text-center my-2 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+      <h1
+        className={`text-5xl font-bold text-center my-2 ${
+          darkMode ? "text-white" : "text-gray-800"
+        }`}
+      >
         Matrículas especiales
       </h1>
       <div className="flex flex-col items-center mt-8">
         <div className="flex">
           <button
-            className={`transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 mr-2 flex-grow ${darkMode ? 'dark-mode' : ''}`}
+            className={`transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 mr-2 flex-grow ${
+              darkMode ? "dark-mode" : ""
+            }`}
             onClick={generateSpecialLicensePlate}
           >
             Generar
           </button>
           <button
-            className={`transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4 ml-2 flex-grow ${darkMode ? 'dark-mode' : ''}`}
+            className={`transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4 ml-2 flex-grow ${
+              darkMode ? "dark-mode" : ""
+            }`}
             onClick={clearLicensePlates}
           >
             Limpiar
@@ -68,17 +74,33 @@ const SpecialLicensePlates = ({ darkMode }) => {
         </div>
         {licensePlates.length > 0 && (
           <div className="mt-4 w-full">
-            <h2 className={`text-2xl font-semibold mb-2 mt-10 text-center ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+            <h2
+              className={`text-2xl font-semibold mb-2 mt-10 text-center ${
+                darkMode ? "text-white" : "text-gray-800"
+              }`}
+            >
               Matrículas Generadas
             </h2>
             <TransitionGroup>
               {licensePlates.map((licensePlate, index) => (
                 <CSSTransition key={index} timeout={500} classNames="slide">
-                  <div className={`flex items-center bg-gray-100 rounded py-2 px-4 mb-2 ${darkMode ? 'dark-mode' : ''}`}>
+                  <div
+                    className={`flex items-center bg-gray-100 rounded py-2 px-4 mb-2 ${
+                      darkMode ? "dark-mode" : ""
+                    }`}
+                  >
                     <span className="flex-grow text-black">{licensePlate}</span>
                     <button
-                      style={{ minWidth: '100px', minHeight: '50px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                      className={`bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-r button-copied ${copiedIndex === index ? 'copied' : ''}`}
+                      style={{
+                        minWidth: "100px",
+                        minHeight: "50px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                      className={`bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-r button-copied ${
+                        copiedIndex === index ? "copied" : ""
+                      }`}
                       onClick={() => copyLicensePlate(licensePlate, index)}
                     >
                       {copiedIndex === index ? (
@@ -88,10 +110,14 @@ const SpecialLicensePlates = ({ darkMode }) => {
                           classNames="fade"
                           unmountOnExit
                         >
-                          <img src={copiadoImage} alt="Copiado" className="h-4" />
+                          <img
+                            src={copiadoImage}
+                            alt="Copiado"
+                            className="h-4"
+                          />
                         </CSSTransition>
                       ) : (
-                        'Copiar'
+                        "Copiar"
                       )}
                     </button>
                   </div>
