@@ -28,7 +28,12 @@ const ValidateLicensePlate = ({ darkMode }) => {
                     setIsValid(data.esValida);
                 }
             })
-            .catch(err => console.error(err));  
+            .catch(err => {
+                console.error(err);
+                if (isMounted.current) {
+                    setIsValid(false); // Actualiza el estado en caso de error
+                }
+            });
     };
 
     return (
@@ -68,4 +73,3 @@ const ValidateLicensePlate = ({ darkMode }) => {
 };
 
 export default ValidateLicensePlate;
-
