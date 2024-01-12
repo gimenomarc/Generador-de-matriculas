@@ -1,3 +1,4 @@
+// Navigation.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -36,7 +37,6 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
               </Link>
             </li>
           </CSSTransition>
-
           <CSSTransition classNames="nav-link" timeout={500}>
             <li className="mb-3 sm:mb-0">
               <Link
@@ -85,7 +85,18 @@ const Navigation = ({ darkMode, toggleDarkMode }) => {
                 <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                   Generar DNI
                 </button>
-
+              </Link>
+            </li>
+          </CSSTransition>
+          <CSSTransition classNames="nav-link" timeout={500}>
+            <li className="mb-3 sm:mb-0">
+              <Link
+                to="/news"  // Add this link
+                className={`nav-link text-white hover:text-gray-300 transition-colors duration-300 ${darkMode ? 'text-gray-200' : ''}`}
+              >
+                <button className="px-4 py-2 text-sm font-medium text-white bg-purple-600 rounded-md hover:bg-purple-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+                  News
+                </button>
               </Link>
             </li>
           </CSSTransition>

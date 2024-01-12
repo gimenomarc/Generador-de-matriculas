@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LicensePlateGenerator from './Components/LicensePlateGenerator';
@@ -9,6 +10,7 @@ import NotFoundPage from './Components/NotFoundPage';
 import ValidateLicensePlate from './Components/ValidateLicensePlate';
 import Api from './Components/Api'; 
 import DniGenerator from './Components/DniGenerator'; 
+import News from './Components/News';  // Add this line
 import './App.css';
 
 function App() {
@@ -56,6 +58,10 @@ function App() {
             <Route
               path="/generar-dni"
               element={<DniGenerator darkMode={darkMode} />} 
+            />
+            <Route
+              path="/news" 
+              element={<News darkMode={darkMode} />}
             />
             <Route
               path="*"
