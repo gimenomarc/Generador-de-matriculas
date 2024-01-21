@@ -9,7 +9,6 @@ const News = ({ darkMode }) => {
       const response = await fetch('http://localhost:3001/news');
       const data = await response.json();
 
-      // Asegúrate de que "news" es un array dentro del objeto de respuesta
       if (Array.isArray(data.news)) {
         setNews(data.news);
       } else {
